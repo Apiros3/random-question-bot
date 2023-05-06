@@ -1,7 +1,8 @@
 name: Discord Webhook
 
 on:
-  schedule: every 24 hours
+  schedule: 
+    - cron: "0 0 * * *"
 
 jobs:
   build:
