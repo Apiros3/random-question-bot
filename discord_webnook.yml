@@ -1,7 +1,8 @@
 name: Discord Webhook
 
 on:
-  schedule: every 24 hours
+  schedule: 
+    - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -15,7 +16,8 @@ jobs:
           python-version: "3.8"
           architecture: "x64"
       - name: Running Script
-        env: WEBHOOK: ${{ secrets.WEBHOOK }}
+        env: 
+          WEBHOOK: ${{ secrets.WEBHOOK }}
         run: |
           pip install -r requirements.txt
           python script_remote.py
