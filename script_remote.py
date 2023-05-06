@@ -45,6 +45,7 @@ def post_message(message):
             {
                 "title": f"Problemset for {datetime.datetime.today().strftime('%Y-%m-%d')}",
                 "description": "",
+                "color" : "002147",
                 "fields" : []
             }
         ]
