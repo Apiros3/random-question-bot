@@ -19,28 +19,34 @@ def main():
     print("running...")
 
     message = []
+    diff = []
     for i in range(8):
         tmp = get_query(400*i, 400*(i+1)-1)
-        message.append(tmp)
-    post_message(message)
+        message.append(tmp[0])
+        diff.append(tmp[1])
+    post_message(message,diff)
 
 def get_query(low, hi):
     # print(str(title))
     lst = []
+    diff = []
     for info in dataset:
         try:
             tmp = dataset[info]["difficulty"]
             if (low <= int(dataset[info]["difficulty"]) and int(dataset[info]["difficulty"]) <= hi):
                 lst.append(str(info))
+                diff.append(str(tmp))
         except KeyError:
             continue            
 
-    return (lst[random.randint(0,len(lst))])
+    rnd = random.randint(0,len(lst))
+    return (lst[rnd], diff[rnd])
 
-def post_message(message):
+def post_message(message,diff):
     # sends message to discord server
     payload = {
-        "username" : "Daily Problemset",
+        "username" : "AtCoder Daily Problemset",
+        # "avatar_url" : "https://github.com/Apiros3/Apiros3.github.io/blob/main/personal/img/100747246.jpeg",
         "embeds" : [
             {
                 "title": f"Problemset for {datetime.datetime.today().strftime('%Y-%m-%d')}",
@@ -52,7 +58,7 @@ def post_message(message):
     }
     for i in range(8):
         payload["embeds"][0]["fields"].append({
-            "name": f"Q{i+1}: ",
+            "name": f"Q{i+1}: (diff: {diff[i]})",
             "value": f"[{message[i]}](https://atcoder.jp/contests/{message[i][0:len(message[i])-2]}/tasks/{message[i]})",
             # "inline": "false"
         })
