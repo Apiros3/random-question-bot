@@ -1,8 +1,9 @@
 name: Discord Webhook
 
-on: [push]
-#   schedule: 
-#     - cron: "*/10 * * * *"
+# on: [push]
+on :
+  schedule: 
+    - cron: "*/60 * * * *"
 
 jobs:
   build:
