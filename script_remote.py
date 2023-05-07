@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import random
 import datetime
+import os
 # import discord
 
 WEBHOOK_URL = os.environ["WEBHOOK"]
