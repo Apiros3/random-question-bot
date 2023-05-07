@@ -3,7 +3,7 @@ name: Discord Webhook
 # on: [push]
 on :
   schedule: 
-    - cron: "*/60 * * * *"
+    - cron: "*/1440 * * * *"
 
 jobs:
   build:
