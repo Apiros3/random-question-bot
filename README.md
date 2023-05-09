@@ -2,6 +2,7 @@
 
 This repository consists of two separate bots, one which runs along GitHub Actions, and the other to respond to user inputs on a discord server.
 The first is designed to send a random problemset every 24 hours to the user, and the other will generate a problem in a difficulty range the user requests.
+[Add Bot to Channel](https://discord.com/api/oauth2/authorize?client_id=1104508299094806669&permissions=8&scope=bot)
 
 ## Installation
 
