@@ -30,7 +30,7 @@ def get_query(low, hi):
         except KeyError:
             continue            
 
-    rnd = random.randint(0,len(lst))
+    rnd = random.randint(0,len(lst)-1)
     return (lst[rnd], diff[rnd])
 
 
